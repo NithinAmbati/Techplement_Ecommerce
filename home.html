@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Website</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    .body {
+    background-color: rgb(176, 103, 190);
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+  
+    h1, h2, h3, p {
+      margin: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    header {
+      background-color:wheat;
+      color: #fff;
+      padding: 15px 0;
+    }
+    .header-top, .header-main, .header-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-top {
+      font-size: 14px;
+    }
+    .header-main {
+      padding: 20px 0;
+    }
+    .header-logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .header-nav {
+      display: flex;
+      list-style: none;
+      padding: 0;
+    }
+    .header-nav li {
+      margin: 0 15px;
+    }
+    .header-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .hero {
+     background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 100px 0;
+      color: #fff;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+    .hero .btn {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .featured-products {
+      padding: 50px 0;
+      text-align: center;
+    }
+    .featured-products h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .product-item {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: calc(33.333% - 20px);
+      box-sizing: border-box;
+    }
+    .product-item img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .product-item h3 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    .product-item p {
+      font-size: 16px;
+      color: #666;
+    }
+    .footer {
+      background-color: #ad3acf;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .footer p {
+      font-size: 14px;
+    }
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://cdn.shopify.com/s/files/1/0070/7032/files/ecommerce_20shopping_20cart.png?v=1689527835");
+            background-size: cover;
+        }
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #333;
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .modal-close-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .newsletter {
+      margin-top: 20px;
+    }
+    .newsletter-header {
+      margin-bottom: 20px;
+    }
+    .email-field {
+      width: calc(100% - 100px);
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .btn-newsletter {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .notification-toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+    .button{
+      display: block;
+      padding: 8px;
+      margin: 10px;
+    }
+    .toast-banner img {
+      border-radius: 5px;
+    }
+    .toast-detail {
+      margin-left: 10px;
+    }
+    .toast-close-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bharat Shop</h1>
+
+    
+  </style>
+  
+ <div class="overlay" data-overlay></div>
+
+  <div class="modal" data-modal>
+
+    <div class="modal-close-overlay" data-modal-overlay></div>
+
+    <div class="modal-content">
+
+      <button class="modal-close-btn" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="newsletter-img">
+        
+      </div>
+
+      <div class="newsletter">
+
+        <form action="#">
+
+          <div class="newsletter-header">
+
+            <h3 class="newsletter-title">Subscribe Newsletter.</h3>
+
+
+          </div>
+
+          <input type="email" name="email" class="email-field" placeholder="Email Address" required>
+
+          <button type="submit" class="btn-newsletter">Subscribe</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="notification-toast" data-toast>
+
+    <button class="toast-close-btn" data-toast-close>
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+    <div class="toast-banner">
+      <img src="https://raw.githubusercontent.com/codewithsadee/anon-ecommerce-website/master/assets/images/products/jewellery-1.jpg" alt="Rose Gold Earrings" width="80" height="70">
+    </div>
+
+    <div class="toast-detail">
+
+      <p class="toast-message">
+        Someone in new just bought
+      </p>
+
+      <p class="toast-title">
+        Rose Gold Earrings
+      </p>
+
+      <p class="toast-meta">
+        <time datetime="PT2M">2 Minutes</time> ago
+    </div>
+
+</div>
+
+<!--
+  - HEADER
+-->
+
+<header>
+
+  <div class="header-top">
+
+    <div class="container">
+
+      <ul class="header-social-container">
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+
+      </ul>
+
+      <class="header-alert-news">
+        <p>
+          <b>Free Shipping</b>
+          This Week Order Over - $55
+        </p>
+
+      </p>
+
+    </div>
+
+  </div>
+          <p>
+            <b>Our Website-</b>
+            This website is designed to get forth and bring shopping at ease to your sspace.
+          </p>
+        </div>
+
+        <div class="header-top-actions">
+
+          <select name="currency">
+
+            <option value="usd">USD $</option>
+            <option value="eur">EUR €</option>
+
+          </select>
+
+          <select name="language">
+
+            <option value="en-US">English</option>
+            <option value="es-ES">Español</option>
+            <option value="fr">Français</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="header-main">
+
+      <div class="container">
+
+
+        <div class="header-search-container">
+
+          <input type="search" name="search" class="search-field" placeholder="Enter your product name...">
+
+          <button class="search-btn">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <div class="header-user-actions">
+
+          <button class="action-btn">
+            <ion-icon name="person-outline"></ion-icon>
+          </button>
+
+          <button class="action-btn">
+            <ion-icon name="heart-outline"></ion-icon>
+            <span class="count">0</span>
+          </button>
+
+          <button class="action-btn">
+            <ion-icon name="bag-handle-outline"></ion-icon>
+            <span class="count">0</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <nav class="desktop-navigation-menu">
+
+      <div class="container">
+
+        <ul class="desktop-menu-category-list">
+        <ul>
+          </nav>
+
+          <div class="header-main">
+            <nav>
+              <ul class="header-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+            <div class="header-user-actions">
+              <button class="action-btn"><ion-icon name="person-outline"></ion-icon></button>
+              <button class="action-btn"><ion-icon name="heart-outline"></ion-icon><span class="count">0</span></button>
+              <button class="action-btn"><ion-icon name="bag-handle-outline"></ion-icon><span class="count">0</span></button>
+            </div>
+          </div>
+        </div>
+      </header>
+    
+      <section class="hero">
+        <div class="container">
+          <h1>Welcome to Our Shop</h1>
+          <p>Discover the latest trends in fashion and get inspired by our new styles.</p>
+          <a href="#" class="btn">Shop Now</a>
+        </div>
+      </section>
+          <section class="featured-products">
+            <div class="container">
+              <h2>Featured Products</h2>
+              <div class="product-grid">
+                <div class="product-item">
+                  <img src="https://i2.wp.com/9to5google.com/wp-content/uploads/sites/4/2017/04/google_home_smart_home_1.jpg?resize=1600%2C1000&quality=82&strip=all&ssl=1" alt="Product 1">
+                  <h3>Product 1</h3>
+                  <p>$49.99</p>
+                </div>
+                <div class="product-item">
+                  <img src="https://sassytownhouseliving.com/wp-content/uploads/2020/06/6-Eco-Friendly-Home-Products-You-Need-To-See-2-1024x683.jpeg" alt="Product 2">
+                  <h3>Product 2</h3>
+                  <p>$59.99</p>
+                </div>
+                <div class="product-item">
+                  <img src="https://images-na.ssl-images-amazon.com/images/I/61abIa%2BXJ7L._SL1070_.jpg" alt="Product 3">
+                  <h3>Product 3</h3>
+                  <p>$69.99</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        
+
+            <section class="Home">
+              <h2>About us</h2>
+                  <button onclick="window.location.href='about us.html'">Click</button>
+                  <!-- Cart items will be dynamically generated here -->
+              </div>
+          </section>
+          </li>
+          
+        <ul class="desktop-menu-category-list">
+
+
+            <div class="dropdown-panel">
+
+
+                  <section class="Home">
+                    <a href="#">Electronics</a>
+                        <button onclick="window.location.href='Electronics.html'">Click</button>
+                        <!-- Cart items will be dynamically generated here -->
+                    </div>
+                </section>
+
+                  <section class="Home">
+                    <a href="#">Laptops</a>
+                        <button onclick="window.location.href='Laptop.html'">Click</button>
+                    </div>
+                </section>
+
+              <section class="Home">
+                  <a href="#">Camera</a>
+                      <button onclick="window.location.href='camera.html'">Click</button>
+                  </div>
+
+                  <section class="Home">
+                    <a href="#">Tablets</a>
+                        <button onclick="window.location.href='Tablets.html'">Click</button>
+                    </div>
+
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="https://raw.githubusercontent.com/codewithsadee/anon-ecommerce-website/master/assets/images/electronics-banner-1.jpg" alt="headphone collection" width="250"
+                      height="119">
+                  </a>
+                </li>
+
+              </ul>
+
+              <ul class="dropdown-panel-list">
+
+                <section class="Home">
+                  <a href="#">Men's</a>
+                      <button onclick="window.location.href='Mens.html'">Click</button>
+                  </div>
+
+                  <section class="Home">
+                    <a href="#">Formal</a>
+                        <button onclick="window.location.href='Formal.html'">Click</button>
+                    </div>
+  
+
+                    <section class="Home">
+                      <a href="#">Casual</a>
+                          <button onclick="window.location.href='Casual.html'">Click</button>
+                      </div>
+
+                      <section class="Home">
+                        <a href="#">Sports</a>
+                            <button onclick="window.location.href='Sports.html'">Click</button>
+                        </div>
+
+
+                          <section class="Home">
+                            <a href="#">Shoes</a>
+                                <button onclick="window.location.href='shoes.html'">Click</button>
+                            </div>
+
+
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="https://raw.githubusercontent.com/codewithsadee/anon-ecommerce-website/master/assets/images/mens-banner.jpg" alt="men's fashion" width="250" height="119">
+                  </a>
+                </li>
+
+              </ul>
+
+              <ul class="dropdown-panel-list">
+
+                <section class="Home">
+                  <a href="#">Womens</a>
+                      <button onclick="window.location.href='Women.html'">Click</button>
+                  </div>
+
+                  <section class="Home">
+                    <a href="#">Casual</a>
+                        <button onclick="window.location.href='casualwomen.html'">Click</button>
+                    </div>
+
+                    <section class="Home">
+                      <a href="#">Formal</a>
+                          <button onclick="window.location.href='formalwomen.html'">Click</button>
+                      </div>
+
+                      <section class="Home">
+                        <a href="#">Cosmetics</a>
+                            <button onclick="window.location.href='Cosmetics.html'">Click</button>
+                        </div>
+
+                          <section class="Home">
+                            <a href="#">Necklace</a>
+                                <button onclick="window.location.href='Necklace.html'">Click</button>
+                            </div>
+                            <section class="Home">
+                              <a href="#">Earrings</a>
+                                  <button onclick="window.location.href='Earrings.html'">Click</button>
+                              </div>
+                              <section class="Home">
+                                <a href="#">Bracelets</a>
+                                    <button onclick="window.location.href='Bracelets.html'">Click</button>
+                                </div>
+
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="https://raw.githubusercontent.com/codewithsadee/anon-ecommerce-website/master/assets/images/womens-banner.jpg" alt="women's fashion" width="250" height="119">
+                  </a>
+                </li>
+
+              </ul>
+
+              <ul class="dropdown-panel-list">
+
+                <section class="Home">
+                  <a href="#">SmartWatch</a>
+                      <button onclick="window.location.href='SmartWatch.html'">Click</button>
+                  </div>
+
+                  <section class="Home">
+                    <a href="#">SmartTv</a>
+                        <button onclick="window.location.href='SmartTv.html'">Click</button>
+                    </div>
+
+                  <section class="Home">
+                      <a href="#">Gadgets</a>
+                          <button onclick="window.location.href='Mouse.html'">Click</button>
+                      </div>
+              
+
+                <li class="panel-list-item">
+                  <a href="#">
+                    <img src="https://raw.githubusercontent.com/codewithsadee/anon-ecommerce-website/master/assets/images/electronics-banner-2.jpg" alt="mouse collection" width="250" height="119">
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+          </li>
+<li>
+
+<ul>
+
+
+  <section class="Home">
+    <a href="#">Perfume</a>
+        <button onclick="window.location.href='Perfume.html'">Click</button>
+    </div>
+
+
+    <section class="Home">
+      <a href="#">Vase flowers</a>
+          <button onclick="window.location.href='vase.html'">Click</button>
+      </div>
+      <section class="Home">
+        <a href="#">Artifcats</a>
+            <button onclick="window.location.href='Artifcats.html'">Click</button>
+        </div>
+
+    </ul>
+  </li>
+</ul>
+
+</li>
+        
+
+          <li class="menu-category">
+            <a href="#" class="menu-title">Blog</a>
+          </li>
+
+          <li class="menu-category">
+            <a href="#" class="menu-title">Hot Offers</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <div class="mobile-bottom-navigation">
+
+      <button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <button class="action-btn">
+        <ion-icon name="bag-handle-outline"></ion-icon>
+
+        <span class="count">0</span>
+      </button>
+
+      <button class="action-btn">
+        <ion-icon name="home-outline"></ion-icon>
+      </button>
+
+      <button class="action-btn">
+        <ion-icon name="heart-outline"></ion-icon>
+
+        <span class="count">0</span>
+      </button>       
+
+        <li class="menu-category">
+          <a href="#" class="menu-title">Blog</a>
+        </li>
+
+        <li class="menu-category">
+          <a href="#" class="menu-title">Hot Offers</a>
+        </li>
+
+    
+
+            <ul class="submenu-category-list" data-accordion>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">English</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Español</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Frençh</a>
+              </li>
+
+            </ul>
+
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Currency</p>
+              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">USD $</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">EUR €</a>
+              </li>
+            
+
+  <footer class="footer">
+    <div class="container">
+    </div>
+  </footer>
+
+</body>
+</html>
