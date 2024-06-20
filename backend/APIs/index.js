@@ -11,5 +11,8 @@ const profileRouter = require("./profile");
 router.use("/login", loginRouter);
 router.use("/register", registerRouter);
 router.use("/profile", profileRouter);
+router.get("/", (req, res) => {
+  res.status(200).send("Hello World");
+});
 
 module.exports = router;
