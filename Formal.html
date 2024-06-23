@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add to Cart Interaction</title>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #b31313;
+      color: #fff;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .header-logo {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .product-item {
+      flex: 1 1 200px;
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .product-item:hover {
+      transform: scale(1.05);
+    }
+
+    .product-item img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .cd-cart {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .cd-cart__product {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .cd-cart__product img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .cd-cart__checkout {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      background: green;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+
+    .cd-add-to-cart {
+      background-color: #b31313;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .cd-add-to-cart:hover {
+      background-color: #d64545;
+    }
+
+    .cd-cart__delete-item {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cd-cart__delete-item:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-logo">Bharat Shop</div>
+    </div>
+  </header>
+  <main class="container">
+    <div class="text-component text-center">
+      <h1>Men's Formal</h1>
+      <div class="product-grid">
+        <div class="product-item">
+          <img src="https://3.bp.blogspot.com/-NFfwfNBfrg0/VSjAYD2qSSI/AAAAAAAAGNI/6v2nS0Npay4/s1600/11.jpg" alt="acer">
+          <h3>Men's Formal 1</h3>
+          <p>$399.99</p>
+          <button class="cd-add-to-cart" data-price="339.99" data-name="Men's Formal 1" data-image="https://3.bp.blogspot.com/-NFfwfNBfrg0/VSjAYD2qSSI/AAAAAAAAGNI/6v2nS0Npay4/s1600/11.jpg">Add To Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://i.etsystatic.com/19913528/r/il/46bfff/3068627796/il_fullxfull.3068627796_bg12.jpg" alt="Dell">
+          <h3>Men's Formal 2</h3>
+          <p>$990.99</p>
+          <button class="cd-add-to-cart" data-price="990.99" data-name="Men's Formal 2" data-image="https://i.etsystatic.com/19913528/r/il/46bfff/3068627796/il_fullxfull.3068627796_bg12.jpg">Add To Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://www.suitsexpert.com/wp-content/uploads/own-your-most-formal-wedding-attire.jpg" alt="Windows">
+          <h3>Men's Formal 3</h3>
+          <p>$1909.99</p>
+          <button class="cd-add-to-cart" data-price="1909.99" data-name="Men's Formal 3" data-image="https://www.suitsexpert.com/wp-content/uploads/own-your-most-formal-wedding-attire.jpg">Add To Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="https://i.pinimg.com/736x/e3/ed/27/e3ed279e0f48ff37732e0b84bd343c92.jpg" alt="Hp">
+          <h3>Men's Formal 4</h3>
+          <p>$1499.99</p>
+          <button class="cd-add-to-cart" data-price="1499.99" data-name="Men's Shirt" data-image="https://i.pinimg.com/736x/e3/ed/27/e3ed279e0f48ff37732e0b84bd343c92.jpg">Add To Cart</button>
+        </div>
+    </div>
+  </main>
+  <div class="cd-cart cd-cart--empty">
+    <h2>Cart</h2>
+    <ul class="cd-cart__body">
+      <!-- Products will be added here dynamically -->
+    </ul>
+    <div>
+      <strong>Total:</strong> $<span class="cd-cart__total">0.00</span>
+    </div>
+    <a href="#0" class="cd-cart__checkout">Checkout</a>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var cart = document.querySelector('.cd-cart');
+      var cartBody = cart.querySelector('.cd-cart__body');
+      var cartTotal = cart.querySelector('.cd-cart__total');
+      var cartCheckout = cart.querySelector('.cd-cart__checkout');
+
+      var addToCartButtons = document.querySelectorAll('.cd-add-to-cart');
+
+      addToCartButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          var productImage = button.getAttribute('data-image');
+          var productName = button.getAttribute('data-name');
+          var productPrice = parseFloat(button.getAttribute('data-price'));
+
+          addProductToCart(productImage, productName, productPrice);
+          updateCartTotal(productPrice);
+        });
+      });
+
+      function addProductToCart(image, name, price) {
+        var cartItem = document.createElement('li');
+        cartItem.classList.add('cd-cart__product');
+        cartItem.innerHTML = `
+          <div>
+            <img src="${image}" alt="${name}">
+          </div>
+          <div>
+            <h4>${name}</h4>
+            <p>$${price.toFixed(2)}</p>
+          </div>
+          <button class="cd-cart__delete-item">Remove</button>
+        `;
+        cartBody.appendChild(cartItem);
+
+        // Remove item from cart
+        cartItem.querySelector('.cd-cart__delete-item').addEventListener('click', function() {
+          cartItem.remove();
+          updateCartTotal(-price);
+        });
+      }
+
+      function updateCartTotal(price) {
+        var currentTotal = parseFloat(cartTotal.innerText);
+        var newTotal = currentTotal + price;
+        cartTotal.innerText = newTotal.toFixed(2);
+
+        // Toggle cart empty state
+        if (newTotal > 0) {
+          cart.classList.remove('cd-cart--empty');
+        } else {
+          cart.classList.add('cd-cart--empty');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
