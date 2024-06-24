@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 // Candidate Login API
 router.post("/user", async (req, res) => {
   const { email, password } = req.body;
-  console.log(req);
 
   try {
     // Find user by email and password
