@@ -1,0 +1,32 @@
+### POST request to login user
+POST http://localhost:8000/login/user/
+Content-Type: application/json
+
+{
+    "email": "asdf@gmail.com",
+    "password": "dfad"
+}
+
+
+
+###
+
+get http://localhost:8000/products/
+
+
+###
+
+POST http://localhost:8000/products/
+Content-Type: application/json
+
+{
+    "productName": "aldfdf",
+    "description": "kjdfkdf",
+    "price": 200,
+    "quantity": 100000,
+    "category": "asdfasdf",
+    "imageUrl": "asdfasdf",
+    "discount": 10,
+    "reviews": 234,
+    "rating": 23
+}

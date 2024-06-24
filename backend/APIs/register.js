@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { User, Admin } = require("./startMongoose");
 
+router.get("", (req, res) => {
+  res.status(200).send("Hello");
+});
+
 router.post("/user", async (req, res) => {
   const { username, password, email } = req.body;
 
